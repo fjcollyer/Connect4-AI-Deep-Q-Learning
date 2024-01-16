@@ -15,10 +15,15 @@
   "dependencies": {
     "@react-three/drei": "^9.88.7",
     "@react-three/fiber": "^8.15.8",
+    "@react-three/postprocessing": "2.15",
+    "@react-three/rapier": "^1.2.1",
+    "axios": "^1.6.5",
+    "leva": "^0.9.35",
+    "postprocessing": "6.33",
     "r3f-perf": "^7.1.2",
     "react": "18.2",
     "react-dom": "18.2",
     "three": "^0.158.0",
-    "vite-plugin-glsl": "^1.1.2"
+    "zustand": "^4.4.7"
   }
 }

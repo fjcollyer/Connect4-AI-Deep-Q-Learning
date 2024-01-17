@@ -1,5 +1,7 @@
 # Connect4 AI: Deep Q-Learning
 
+![Preview of project UI](preview.gif)
+
 ## Running the Project Locally
 
 To run Connect4 AI: Deep Q-Learning locally, follow these steps:

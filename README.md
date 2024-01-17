@@ -38,4 +38,23 @@ Before running the project, ensure you have the following installed:
 ```
 
 ### 5. Note
-By default the API will run on http://127.0.0.1:8080. If if runs on a differnet port you must update the code in ui/src/Game.js to use the correct URL.
+By default the API will run on http://127.0.0.1:8080. If if runs on a differnet port you must update the code in "ui/src/Game.js" to use the correct URL.
+
+## Training the model
+To train a new version of the model, follow these steps:
+
+### 1. Set hyperparameters and paramaters
+In "api/train/main" there is a Config class that contains most of the important hyperparamaters and paramaters.
+
+### 2. Run the training script
+```bash
+- cd api
+- python3 -m train.main
+```
+This will generate "api/agents/" where the model is periodically saved to.
+
+### 3. Run final evaluation of the model
+```bash
+- python3 -m train.sim_vs_random
+```
+This play the saved models from "api/agents" against an opponent that makes random moves. When done it will plot the performance of the differant itterations of the model and save it to "2024learning_progression.png". 

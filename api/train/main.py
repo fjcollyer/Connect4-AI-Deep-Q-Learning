@@ -10,7 +10,7 @@ from .train import Trainer
 
 
 class Config:
-    EPISODES = 100000
+    EPISODES = 10000
     SAVE_MODEL_FREQUENCY = 3000
     SAVE_FOLDER = './agents/'
 

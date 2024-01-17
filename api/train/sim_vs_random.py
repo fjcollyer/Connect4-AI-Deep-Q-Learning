@@ -96,7 +96,7 @@ def plot_rates(data):
         axs[i, 1].grid(True)
 
     plt.tight_layout()
-    plt.savefig('learning_progression.png')
+    plt.savefig('2024learning_progression.png')
     plt.show()
 
 

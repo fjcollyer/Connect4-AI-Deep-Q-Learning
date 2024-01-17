@@ -58,4 +58,4 @@ This will generate "api/agents/" where the model is periodically saved to.
 ```bash
 python3 -m train.sim_vs_random
 ```
-This play the saved models from "api/agents/" against an opponent that makes random moves. When done it will plot the performance of the differant itterations of the model and save it to "2024learning_progression.png". 
+This plays the saved models from "api/agents/" against an opponent that makes random moves. When done it will plot the performance of the differant itterations of the model and save it to "2024learning_progression.png". 

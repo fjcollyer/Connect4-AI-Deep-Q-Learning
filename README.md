@@ -7,7 +7,7 @@ https://connect4-ai-liard.vercel.app/
 ![Preview of project UI](preview.gif)
 
 ## Description
-"Connect4 AI: Deep Q-Learning" is a 3D web application enabling users to play Connect4 against an AI trained through self-play using deep Q-learning. The AI, having learned strategies from over 300,000 self-play games, is served by a Python API that the web app consults for determining the AI's moves.
+This is a 3D web application enabling users to play Connect4 against an AI trained through self-play using deep Q-learning. The AI, having learned strategies from over 300,000 self-play games, is served by a Python API that the web app consults for determining the AI's moves.
 
 ## Running the Project Locally
 

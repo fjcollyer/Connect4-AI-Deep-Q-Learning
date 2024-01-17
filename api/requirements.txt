@@ -1,0 +1,7 @@
+numpy
+tensorboard
+torch
+scipy
+Flask
+flask_cors
+gunicorn==21.2.0

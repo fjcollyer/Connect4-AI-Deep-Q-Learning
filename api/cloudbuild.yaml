@@ -1,0 +1,6 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/connect4-deep-q-network/connect4-app-image', '.']
+
+images:
+  - 'gcr.io/$PROJECT_ID/connect4-app-image'

@@ -1,5 +1,11 @@
 .DS_Store
+
 ui/.vercel
 ui/node_modules/
 ui/dist/
 ui/.DS_Store
+
+api/.DS_Store
+api/__pycache__/
+api/train/.DS_Store
+api/train/__pycache__/

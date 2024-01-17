@@ -19,7 +19,6 @@ Before running the project, ensure you have the following installed:
 
 ### 3. Run the API that serves the Deep Q-Learning Model
 ```bash
-- cd Connect4-AI-Deep-Q-Learning
 - cd api
 - pip3 install -r requirements.txt
 - python3 app.py

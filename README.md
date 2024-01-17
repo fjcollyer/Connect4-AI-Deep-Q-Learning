@@ -8,7 +8,7 @@ https://connect4-ai-liard.vercel.app/
 
 ## Running the Project Locally
 
-To run Connect4 AI: Deep Q-Learning locally, follow these steps:
+To run the project locally, follow these steps:
 
 ### 1. Prerequisites
 

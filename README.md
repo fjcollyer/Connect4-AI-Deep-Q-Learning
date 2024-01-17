@@ -14,9 +14,10 @@ https://connect4-ai-liard.vercel.app/
 ### 1. Prerequisites
 
 Before running the project, ensure you have the following installed:
-- Python 3
-- pip3
-- Node.js and npm
+- Python3 (3.12.1)
+- pip3 (23.3.2)
+- Node.js (v20.10.0)
+- npm (10.3.0)
 
 ### 2. Clone the Repository
 ```bash

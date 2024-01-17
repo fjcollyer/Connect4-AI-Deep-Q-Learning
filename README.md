@@ -1,7 +1,7 @@
 # Connect4 AI: Deep Q-Learning
 
 ## Website
-<a href="https://connect4-ai-liard.vercel.app/" target="_blank">https://connect4-ai-liard.vercel.app/</a>
+[https://connect4-ai-liard.vercel.app/](https://connect4-ai-liard.vercel.app/)
 
 ## Preview
 ![Preview of project UI](preview.gif)

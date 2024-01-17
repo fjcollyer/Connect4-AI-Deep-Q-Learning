@@ -37,7 +37,7 @@ export default class Game {
     return true;
   }
 
-  // Function to make AI move, we need to call an API to get the move
+  // Function to make AI move
   async makeAIMove() {
     try {
       // Use environment variable for API URL, adjusted for Vite

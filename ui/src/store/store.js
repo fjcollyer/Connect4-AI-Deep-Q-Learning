@@ -2,6 +2,8 @@
 import { create } from 'zustand';
 
 const useStore = create(set => ({
+  debugMode: false,
+  setDebugMode: (debug) => set({ debugMode: debug }),
   startPressed: false,
   setStartPressed: (pressed) => set({ startPressed: pressed }),
   introDone: false,

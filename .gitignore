@@ -1,5 +1,6 @@
 .DS_Store
 
+ui/src/.env
 ui/.vercel
 ui/node_modules/
 ui/dist/

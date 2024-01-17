@@ -7,10 +7,6 @@ import LoadingScreen from './LoadingScreen.jsx'
 import Experience from './Experience.jsx'
 import useStore from './store/store.js'
 
-// Importing SVGs
-// import MuteIcon from './svgs/mute.svg';
-// import UnmuteIcon from './svgs/unmute.svg';
-
 // Audio
 const music = new Audio('./audio/background.mp3');
 music.volume = 0.2;
@@ -21,6 +17,20 @@ export default function App() {
   const setStartPressed = useStore(state => state.setStartPressed);
   const muted = useStore(state => state.muted);
   const setMuted = useStore(state => state.setMuted);
+  const setDebugMode = useStore(state => state.setDebugMode);
+
+  // Debug mode
+  useEffect(() => {
+    const handleHashChange = () => {
+      setDebugMode(window.location.hash === '#debug');
+      console.log('Debug mode:', window.location.hash === '#debug');
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange();
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   // Loading screen stuff
   const [start, setStart] = useState(false);

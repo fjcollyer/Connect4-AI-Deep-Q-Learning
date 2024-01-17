@@ -7,10 +7,10 @@ export default function LoadingScreen({ started, onStarted }) {
 
   useEffect(() => {
     if (started) {
-      // Set a timeout equal to the CSS transition duration
+      // Set a timeout equal to the CSS transition duration in style.css on .started
       const timer = setTimeout(() => {
-        setIsHidden(true); // Hide the element after the transition
-      }, 1000); // 2000ms matches the CSS transition duration
+        setIsHidden(true);
+      }, 1000); // Match the CSS transition duration in style.css on .started
       return () => clearTimeout(timer);
     }
   }, [started]);

@@ -6,7 +6,7 @@ Source: https://sketchfab.com/3d-models/skybox-orange-sky-626c5de48bb74c94906ecd
 Title: Skybox Orange Sky
 */
 
-import React, { useRef } from "react";
+import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 export default function Skybox(props) {

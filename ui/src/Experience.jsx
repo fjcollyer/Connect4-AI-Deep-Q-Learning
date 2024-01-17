@@ -1,10 +1,8 @@
-import { OrbitControls, PresentationControls, Environment, Html, Box, Cylinder, Plane, Text, Text3D, Stars, Clouds, Sky, Sparkles } from '@react-three/drei'
+import { PresentationControls, Environment, Cylinder } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { Bloom, Glitch, EffectComposer } from '@react-three/postprocessing'
-import { GlitchMode, BlendFunction } from 'postprocessing'
+import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import { useRef, useEffect, useState } from 'react'
 import { useThree, useFrame } from '@react-three/fiber'
-import { useControls } from 'leva'
 import { Physics, RigidBody, CuboidCollider } from '@react-three/rapier'
 import * as THREE from 'three'
 
@@ -24,6 +22,7 @@ export default function Experience() {
     //
     // Global states
     //
+    const debugMode = useStore(state => state.debugMode);
     const startPressed = useStore(state => state.startPressed);
     const introDone = useStore(state => state.introDone);
     const setRobotAnimation = useStore(state => state.setRobotAnimation);
@@ -248,7 +247,7 @@ export default function Experience() {
     return <>
 
         {/* Stats */}
-        {/* <Perf position="top-left" /> */}
+        {debugMode && <Perf position="top-left" />}
 
         {/* Effects */}
         <EffectComposer disableNormalPass>
@@ -262,7 +261,6 @@ export default function Experience() {
         <Environment preset="city" />
         <ambientLight intensity={2} />
 
-        {/* <OrbitControls /> */}
         <PresentationControls
             global
             rotation={[0, 0, 0]}
@@ -271,7 +269,7 @@ export default function Experience() {
             config={{ mass: 2, tension: 400 }}
             snap={{ mass: 4, tension: 400 }}
         >
-            <Physics debug={false} gravity={[0, -9.81, 0]}>
+            <Physics debug={debugMode} gravity={[0, -9.81, 0]}>
                 {/* Test Objects */}
                 {cylinders.map((cylinder, index) => (
                     <RigidBody key={index} type="dynamic" colliders="cuboid">

@@ -40,8 +40,18 @@ export default class Game {
   // Function to make AI move, we need to call an API to get the move
   async makeAIMove() {
     try {
+      // Use environment variable for API URL, adjusted for Vite
+      const apiUrl = import.meta.env.VITE_API_URL;
+      let endpoint = `${apiUrl}/get_q_values`;
+
+      // If no API URL is set and we are in development mode try localhost
+      if (!apiUrl && import.meta.env.DEV) {
+        endpoint = "http://127.0.0.1:8080/get_q_values";
+        console.log("No API URL set, using: " + endpoint);
+      }
+
       // Make the API call to get the AI move
-      const response = await axios.post('https://connect4-app-service-kooxolstma-uc.a.run.app/get_q_values', {
+      const response = await axios.post(endpoint, {
         state: this.board
       });
 

@@ -24,7 +24,7 @@ body,
 }
 
 
-/* For removing loader */
+/* For removing loader, must be same duration as in LoadingScreen.jsx */
 .started {
     opacity: 0;
     transition: opacity 1s ease-in-out;

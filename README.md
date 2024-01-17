@@ -44,7 +44,7 @@ By default the API will run on http://127.0.0.1:8080. If if runs on a differnet 
 To train a new version of the model, follow these steps:
 
 ### 1. Set hyperparameters and paramaters
-In "api/train/main" there is a Config class that contains most of the important hyperparamaters and paramaters.
+In "api/train/main.py" there is a Config class that contains most of the important hyperparamaters and paramaters.
 
 ### 2. Run the training script
 ```bash
@@ -57,4 +57,4 @@ This will generate "api/agents/" where the model is periodically saved to.
 ```bash
 - python3 -m train.sim_vs_random
 ```
-This play the saved models from "api/agents" against an opponent that makes random moves. When done it will plot the performance of the differant itterations of the model and save it to "2024learning_progression.png". 
+This play the saved models from "api/agents/" against an opponent that makes random moves. When done it will plot the performance of the differant itterations of the model and save it to "2024learning_progression.png". 

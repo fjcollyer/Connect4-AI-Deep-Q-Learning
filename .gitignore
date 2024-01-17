@@ -6,5 +6,6 @@ ui/dist/
 ui/.DS_Store
 api/.DS_Store
 api/__pycache__/
+api/cloudbuild.yaml
 api/train/.DS_Store
 api/train/__pycache__/

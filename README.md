@@ -37,5 +37,5 @@ Before running the project, ensure you have the following installed:
 - npm run dev
 ```
 
-### Note
+### 5. Note
 By default the API will run on http://127.0.0.1:8080. If if runs on a differnet port you must update the code in ui/src/Game.js to use the correct URL.

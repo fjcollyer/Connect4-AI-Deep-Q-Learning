@@ -8,8 +8,6 @@ https://connect4-ai-liard.vercel.app/
 
 ## Running the Project Locally
 
-To run the project locally, follow these steps:
-
 ### 1. Prerequisites
 
 Before running the project, ensure you have the following installed:
@@ -41,7 +39,6 @@ Before running the project, ensure you have the following installed:
 By default the API will run on http://127.0.0.1:8080. If if runs on a differnet port you must update the code in "ui/src/Game.js" to use the correct URL.
 
 ## Training the model
-To train a new version of the model, follow these steps:
 
 ### 1. Set hyperparameters and paramaters
 In "api/train/main.py" there is a Config class that contains most of the important hyperparamaters and paramaters.

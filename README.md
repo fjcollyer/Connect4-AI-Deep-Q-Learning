@@ -21,22 +21,22 @@ Before running the project, ensure you have the following installed:
 
 ### 2. Clone the Repository
 ```bash
-- git clone https://github.com/fjcollyer/Connect4-AI-Deep-Q-Learning.git
-- cd Connect4-AI-Deep-Q-Learning
+git clone https://github.com/fjcollyer/Connect4-AI-Deep-Q-Learning.git &&
+cd Connect4-AI-Deep-Q-Learning
 ```
 
 ### 3. Run the API that serves the Deep Q-Learning Model
 ```bash
-- cd api
-- pip3 install -r requirements.txt
-- python3 app.py
+cd api &&
+pip3 install -r requirements.txt &&
+python3 app.py
 ```
 
 ### 4. Run the UI
 ```bash
-- cd ui
-- npm i
-- npm run dev
+cd ui &&
+npm i &&
+npm run dev
 ```
 
 ### 5. Note
@@ -49,13 +49,13 @@ In "api/train/main.py" there is a Config class that contains most of the importa
 
 ### 2. Run the training script
 ```bash
-- cd api
-- python3 -m train.main
+cd api &&
+python3 -m train.main
 ```
 This will generate "api/agents/" where the model is periodically saved to.
 
 ### 3. Run final evaluation of the model
 ```bash
-- python3 -m train.sim_vs_random
+python3 -m train.sim_vs_random
 ```
 This play the saved models from "api/agents/" against an opponent that makes random moves. When done it will plot the performance of the differant itterations of the model and save it to "2024learning_progression.png". 

@@ -8,7 +8,7 @@ from train.main import Config
 
 app = Flask(__name__)
 
-# Loading the trained model
+# Loading the model
 MODEL_PATH = "./train/agents_saved/model_299999.pt"
 
 agent = None

@@ -2,7 +2,6 @@
 import copy
 import datetime
 import random
-import sys
 import time
 import numpy as np
 import torch

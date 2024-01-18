@@ -43,6 +43,7 @@ export default function Experience() {
     //
     // Local states
     //
+    const [game, setGame] = useState(() => new Game());
     const [cameraTargetPosition, setCameraTargetPosition] = useState(new THREE.Vector3(0, 0.6, 6));
     const [cameraLookAtTargetPosition, setCameraLookAtTargetPosition] = useState(new THREE.Vector3(0.6, 0, 0));
     const [cameraLookAtCurrentPosition, setCameraLookAtCurrentPosition] = useState(new THREE.Vector3(0, 0, 0));
@@ -56,7 +57,10 @@ export default function Experience() {
     // On mount
     //
     useEffect(() => {
-        makeAIMove();
+        // Wake up AI API so the user doesn't have to wait for the first move
+        (async () => {
+            await game.wakeUpAiAPI();
+        })();
     }, []);
 
     //
@@ -88,7 +92,7 @@ export default function Experience() {
     useEffect(() => {
         if (restartGame) {
             setRestartGame(false);
-            game.board = game.recreateBoard();
+            game.recreateBoard();
             // Remove all cylinders
             setCylinders([]);
             // Reset users turn
@@ -135,7 +139,6 @@ export default function Experience() {
     //
     // Game logic
     //
-    const [game, setGame] = useState(() => new Game());
     const [cylinders, setCylinders] = useState([]);
     const basePosition = { x: -1.05, y: 3, z: -1.2 };
     const handleClickConnect4 = (e) => {
@@ -181,13 +184,13 @@ export default function Experience() {
             }
         }
         // Check if the user won or if it's a draw
-        const didUserWin = game.checkWin(game.board)
+        const didUserWin = game.checkWin()
         if (didUserWin) {
             setWinner("user");
             game.recreateBoard();
             return;
         }
-        const didDraw = game.checkDraw(game.board)
+        const didDraw = game.checkDraw()
         if (didDraw) {
             setWinner("draw");
             game.recreateBoard();
@@ -223,13 +226,13 @@ export default function Experience() {
                     }
                 }
                 // Check if the AI won or if it's a draw
-                const didAIWin = game.checkWin(game.board)
+                const didAIWin = game.checkWin()
                 if (didAIWin) {
                     setWinner("ai");
                     game.recreateBoard();
                     return;
                 }
-                const didDraw2 = game.checkDraw(game.board)
+                const didDraw2 = game.checkDraw()
                 if (didDraw2) {
                     setWinner("draw");
                     game.recreateBoard();

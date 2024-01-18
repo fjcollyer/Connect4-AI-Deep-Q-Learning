@@ -2,21 +2,45 @@ import axios from "axios";
 
 export default class Game {
   constructor() {
-    this.board = this.recreateBoard();
+    this.board = [];
+    this.recreateBoard();
     this.userPlayer = -1;
     this.aiPlayer = 1;
+    // Use environment variable for API URL, adjusted for Vite
+    this.api_endpoint = import.meta.env.VITE_API_URL + "/get_q_values";
+    this.fallback_api_endpoint = "http://http://127.0.0.1:8080" + "/get_q_values"
   }
 
   recreateBoard() {
-    let board = [];
     for (let row = 0; row < 6; row++) {
-      board[row] = [];
+      this.board[row] = [];
       for (let col = 0; col < 7; col++) {
-        board[row][col] = 0;
+        this.board[row][col] = 0;
       }
     }
-    return board;
   }
+
+  async wakeUpAiAPI() {
+    try {
+      let endpoint = this.api_endpoint;
+      // If no API URL is set and we are in development mode try localhost
+      if (!endpoint && import.meta.env.DEV) {
+        endpoint = this.fallback_api_endpoint;
+        console.log("No API URL set, using: " + endpoint);
+      }
+
+      // Make the API call to wake up the AI API
+      const response = await axios.post(endpoint, {
+        state: this.board
+      });
+      console.log("AI API woke up:", response.data);
+      return true
+    } catch (error) {
+      console.log("Error waking up AI API:", error);
+      return false;
+    }
+  }
+
 
   // Function to make a move
   makeUserMove(col) {
@@ -40,13 +64,11 @@ export default class Game {
   // Function to make AI move
   async makeAIMove() {
     try {
-      // Use environment variable for API URL, adjusted for Vite
-      const apiUrl = import.meta.env.VITE_API_URL;
-      let endpoint = `${apiUrl}/get_q_values`;
 
+      let endpoint = this.api_endpoint;
       // If no API URL is set and we are in development mode try localhost
-      if (!apiUrl && import.meta.env.DEV) {
-        endpoint = "http://127.0.0.1:8080/get_q_values";
+      if (!endpoint && import.meta.env.DEV) {
+        endpoint = this.fallback_api_endpoint
         console.log("No API URL set, using: " + endpoint);
       }
 
@@ -81,14 +103,14 @@ export default class Game {
   }
 
   // Functions to check for win or draw
-  checkWin(board) {
-    return this.checkHorizontalWin(board) || this.checkVerticalWin(board) || this.checkDiagonalWin(board);
+  checkWin() {
+    return this.checkHorizontalWin() || this.checkVerticalWin() || this.checkDiagonalWin();
   }
 
-  checkDraw(board) {
+  checkDraw() {
     for (let row = 0; row < 6; row++) {
       for (let col = 0; col < 7; col++) {
-        if (board[row][col] === 0) {
+        if (this.board[row][col] === 0) {
           return false;
         }
       }
@@ -96,14 +118,14 @@ export default class Game {
     return true;
   }
 
-  checkHorizontalWin(board) {
+  checkHorizontalWin() {
     for (let row = 0; row < 6; row++) {
       for (let col = 0; col < 4; col++) {
-        let cellValue = board[row][col];
+        let cellValue = this.board[row][col];
         if (cellValue !== 0 &&
-          cellValue === board[row][col + 1] &&
-          cellValue === board[row][col + 2] &&
-          cellValue === board[row][col + 3]) {
+          cellValue === this.board[row][col + 1] &&
+          cellValue === this.board[row][col + 2] &&
+          cellValue === this.board[row][col + 3]) {
           return true;
         }
       }
@@ -111,14 +133,14 @@ export default class Game {
     return false;
   }
 
-  checkVerticalWin(board) {
+  checkVerticalWin() {
     for (let col = 0; col < 7; col++) {
       for (let row = 0; row < 3; row++) {
-        let cellValue = board[row][col];
+        let cellValue = this.board[row][col];
         if (cellValue !== 0 &&
-          cellValue === board[row + 1][col] &&
-          cellValue === board[row + 2][col] &&
-          cellValue === board[row + 3][col]) {
+          cellValue === this.board[row + 1][col] &&
+          cellValue === this.board[row + 2][col] &&
+          cellValue === this.board[row + 3][col]) {
           return true;
         }
       }
@@ -126,15 +148,15 @@ export default class Game {
     return false;
   }
 
-  checkDiagonalWin(board) {
+  checkDiagonalWin() {
     // Check from top-left to bottom-right
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 4; col++) {
-        let cellValue = board[row][col];
+        let cellValue = this.board[row][col];
         if (cellValue !== 0 &&
-          cellValue === board[row + 1][col + 1] &&
-          cellValue === board[row + 2][col + 2] &&
-          cellValue === board[row + 3][col + 3]) {
+          cellValue === this.board[row + 1][col + 1] &&
+          cellValue === this.board[row + 2][col + 2] &&
+          cellValue === this.board[row + 3][col + 3]) {
           return true;
         }
       }
@@ -143,11 +165,11 @@ export default class Game {
     // Check from top-right to bottom-left
     for (let row = 0; row < 3; row++) {
       for (let col = 3; col < 7; col++) {
-        let cellValue = board[row][col];
+        let cellValue = this.board[row][col];
         if (cellValue !== 0 &&
-          cellValue === board[row + 1][col - 1] &&
-          cellValue === board[row + 2][col - 2] &&
-          cellValue === board[row + 3][col - 3]) {
+          cellValue === this.board[row + 1][col - 1] &&
+          cellValue === this.board[row + 2][col - 2] &&
+          cellValue === this.board[row + 3][col - 3]) {
           return true;
         }
       }

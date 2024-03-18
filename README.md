@@ -13,7 +13,6 @@ This is a 3D web application enabling users to play Connect4 against an AI train
 
 ### 1. Prerequisites
 
-Before running the project, ensure you have the following installed:
 - Python3 (3.11.7)
 - pip3 (23.2.1)
 - Node.js (v20.10.0)

@@ -1,6 +1,7 @@
 import './style.css'
 import { Canvas } from '@react-three/fiber'
 import { Suspense, useEffect, useState } from 'react'
+import { Analytics } from "@vercel/analytics/react"
 
 // Local imports
 import LoadingScreen from './LoadingScreen.jsx'
@@ -62,6 +63,8 @@ export default function App() {
   }
 
   return <>
+    <Analytics />
+
     <button className="mute-button" onClick={toggleMute}>
       {muted ? <img src="/svgs/mute.svg" alt="Unmute" className="svg-icon" />
         : <img src="/svgs/unmute.svg" alt="Mute" className="svg-icon" />}

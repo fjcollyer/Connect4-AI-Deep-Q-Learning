@@ -13,6 +13,7 @@ const music = new Audio('./audio/background.mp3');
 music.volume = 0.2;
 music.loop = true;
 
+
 export default function App() {
   // Global state
   const setStartPressed = useStore(state => state.setStartPressed);

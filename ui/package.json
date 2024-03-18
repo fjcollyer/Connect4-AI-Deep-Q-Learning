@@ -17,6 +17,7 @@
     "@react-three/fiber": "^8.15.8",
     "@react-three/postprocessing": "2.15",
     "@react-three/rapier": "^1.2.1",
+    "@vercel/analytics": "^1.2.2",
     "axios": "^1.6.5",
     "leva": "^0.9.35",
     "r3f-perf": "^7.1.2",

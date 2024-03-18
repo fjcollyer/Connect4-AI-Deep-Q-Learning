@@ -49,7 +49,7 @@ In "api/train/main.py" there is a Config class that contains most of the importa
 ### 2. Run the training script
 ```bash
 cd api &&
-python3 -m train.main
+python3 -m train.main 
 ```
 This will generate "api/agents/" where the model is periodically saved to.
 

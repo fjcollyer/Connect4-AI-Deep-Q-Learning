@@ -53,7 +53,7 @@ python3 -m train.main
 ```
 This will generate "api/agents/" where the model is periodically saved to.
 
-### 3. Run final evaluation of the model
+### 3. Run final evaluation of the model 
 ```bash
 python3 -m train.sim_vs_random
 ```

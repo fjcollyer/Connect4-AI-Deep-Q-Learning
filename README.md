@@ -46,14 +46,14 @@ By default the API will run on http://127.0.0.1:8080. If it runs on a different 
 ### 1. Set hyperparameters and parameters
 In "api/train/main.py" there is a Config class that contains most of the important hyperparameters and parameters.
 
-### 2. Run the training script
+### 2. Run the training script 
 ```bash
 cd api &&
 python3 -m train.main
 ```
 This will generate "api/agents/" where the model is periodically saved to.
 
-### 3. Run final evaluation of the model 
+### 3. Run final evaluation of the model  
 ```bash
 python3 -m train.sim_vs_random
 ```

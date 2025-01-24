@@ -20,7 +20,7 @@ This is a 3D web application enabling users to play Connect4 against an AI train
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/fjcollyer/Connect4-AI-Deep-Q-Learning.git &&
+git clone https://github.com/fredrikcollyer/Connect4-AI-Deep-Q-Learning.git &&
 cd Connect4-AI-Deep-Q-Learning
 ```
 

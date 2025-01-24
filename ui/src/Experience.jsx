@@ -335,13 +335,13 @@ export default function Experience() {
                         rotation={[-Math.PI / 6, -Math.PI / 6, -Math.PI / 8]}
                     />
                     <Github
-                        onClick={() => window.open("https://github.com/fjcollyer", "_blank")}
+                        onClick={() => window.open("https://github.com/fredrikcollyer", "_blank")}
                         scale={[0.2, 0.2, 0.2]}
                         position={[-1.9, -0.05, 3.4]}
                         rotation={[-Math.PI / 4, Math.PI / 4, 0.4]}
                     />
                     <Linkedin
-                        onClick={() => window.open("https://www.linkedin.com/in/fjcollyer/", "_blank")}
+                        onClick={() => window.open("https://www.linkedin.com/in/fredrikcollyer/", "_blank")}
                         scale={[0.32, 0.32, 0.32]}
                         position={[0.3, 0.1, 3.82]}
                         rotation={[-Math.PI / 6, 0, 0]}
